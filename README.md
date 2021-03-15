@@ -1,5 +1,7 @@
 =================================================
-#Sniffer Bot :
+
+# Sniffer Bot :
+
 This bot scans multiple pairs on binance exchange and see price movement for more than 2% on 1m, 3m , 5m.
 when such incident occurs it will check twitter account for that coin.
 if there is twitt made in short span say 5 min , then this bot will notify on telegram.
@@ -9,7 +11,8 @@ It also holds files for creating twitter data base.
 It's availible on telegram at : @Cryptosnifferbot_bot
 
 =================================================
-###Setting up environment for development :
+
+### Setting up environment for development :
 
 1. first install virtuale env : pip install virtualenv
 2. create a virtual env with python3 ( specify your python3 path ): virtualenv --python="C:\Users\a0490374\AppData\Local\Programs\Python\Python39\python.exe" sniffer_env
@@ -22,7 +25,7 @@ It's availible on telegram at : @Cryptosnifferbot_bot
 
 =================================================
 
-###Understanding Project structure :
+### Understanding Project structure :
 
 there is mainly 3 file which runs the bot :
 
@@ -42,7 +45,7 @@ there is mainly 3 file which runs the bot :
 
 =================================================
 
-###database
+### database
 
 all data is stored in .json format and currently there is no data base used.
 
@@ -54,7 +57,7 @@ all data is stored in .json format and currently there is no data base used.
 
 =================================================
 
-###fetching data from coinmarketcap and creating twitter data base.
+### fetching data from coinmarketcap and creating twitter data base.
 
 we use coin market cap to get twitter account details.
 We need to refreash our coin list and twitter account time 2 time.
