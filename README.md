@@ -14,11 +14,13 @@ It's availible on telegram at : @Cryptosnifferbot_bot
 
 ### Setting up environment for development :
 
-1. first install virtuale env : pip install virtualenv
-2. create a virtual env with python3 ( specify your python3 path ): virtualenv --python="C:\Users\a0490374\AppData\Local\Programs\Python\Python39\python.exe" sniffer_env
-3. activate that virtualenv : .\sniffer_env\Scripts\activate
-4. r.txt is availible in repo : pip install -r r.txt
-5. on 2 seperate shells run this 2 files :
+1. first install virtuale env : pip install virtualenv. ( use virtualenv --version to see if virualenv is installed ).
+2. Use python -V to see version. We need python 3 for our project. if you do not have python 3 , then install from here : https://www.python.org/downloads/mac-osx/.
+3. 
+4. create a virtual env with python3 ( specify your python3 path ): virtualenv --python="C:\Users\a0490374\AppData\Local\Programs\Python\Python39\python.exe" sniffer_env.
+5. activate that virtualenv : .\sniffer_env\Scripts\activate
+6. r.txt is availible in repo : pip install -r r.txt
+7. on 2 seperate shells run this 2 files :
    python binance_data_fetch.py
    python sniffer_bot_main_telegram_process.py
 6. deactivate that virtualenv : .\sniffer_env\Scripts\deactivate
