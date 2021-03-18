@@ -1,0 +1,862 @@
+{
+    "AAVE": {
+        "twitter_userName": "AaveAave",
+        "id": "867100084248469505"
+    },
+    "ADA": {
+        "twitter_userName": "cardano",
+        "id": "825920479055671296"
+    },
+    "ADX": {
+        "twitter_userName": "AdEx_Network",
+        "id": "869908314292924416"
+    },
+    "AE": {
+        "twitter_userName": "aeternity",
+        "id": "760049490187386880"
+    },
+    "AGI": {
+        "twitter_userName": "singularity_net",
+        "id": "915590652167061504"
+    },
+    "AION": {
+        "twitter_userName": "Aion_OAN",
+        "id": "880423818594070528"
+    },
+    "ALGO": {
+        "twitter_userName": "AlgoFoundation",
+        "id": "1090346259892838400"
+    },
+    "ALPHA": {
+        "twitter_userName": "alphafinancelab",
+        "id": "1260105245033558022"
+    },
+    "AMB": {
+        "twitter_userName": "AmbrosusAMB",
+        "id": "882330272280322050"
+    },
+    "ANT": {
+        "twitter_userName": "AragonProject",
+        "id": "828668619986964480"
+    },
+    "APPC": {
+        "twitter_userName": "appcoinsproject",
+        "id": "915531221551255552"
+    },
+    "ARDR": {
+        "twitter_userName": "ardorplatform",
+        "id": "744075632997470208"
+    },
+    "ARK": {
+        "twitter_userName": "ArkEcosystem",
+        "id": "774791455680434176"
+    },
+    "ARPA": {
+        "twitter_userName": "arpaofficial",
+        "id": "1018882182394376197"
+    },
+    "AST": {
+        "twitter_userName": "airswap",
+        "id": "856193547976028161"
+    },
+    "ATOM": {
+        "twitter_userName": "cosmos",
+        "id": "15223775"
+    },
+    "AVA": {
+        "twitter_userName": "travalacom",
+        "id": "961827567740239872"
+    },
+    "AVAX": {
+        "twitter_userName": "AvalancheAVAX",
+        "id": "1055894724245155841"
+    },
+    "BAL": {
+        "twitter_userName": "BalancerLabs",
+        "id": "1162883382700912640"
+    },
+    "BAND": {
+        "twitter_userName": "bandprotocol",
+        "id": "993805028182781954"
+    },
+    "BAT": {
+        "twitter_userName": "attentiontoken",
+        "id": "841424245938769920"
+    },
+    "BCD": {
+        "twitter_userName": "BitcoinDiamond_",
+        "id": "927804348859428864"
+    },
+    "BCPT": {
+        "twitter_userName": "blockmasonio",
+        "id": "880413992040222722"
+    },
+    "BEAM": {
+        "twitter_userName": "beamprivacy",
+        "id": "1006569151413063680"
+    },
+    "BEL": {
+        "twitter_userName": "BellaProtocol",
+        "id": "1287968444952895488"
+    },
+    "BLZ": {
+        "twitter_userName": "bluzellehq",
+        "id": "3318365565"
+    },
+    "BNB": {
+        "twitter_userName": "binance",
+        "id": "877807935493033984"
+    },
+    "BNT": {
+        "twitter_userName": "Bancor",
+        "id": "816646997356777472"
+    },
+    "BRD": {
+        "twitter_userName": "BRDHQ",
+        "id": "2794894848"
+    },
+    "BTG": {
+        "twitter_userName": "bitcoingold",
+        "id": "908863693248593920"
+    },
+    "BTS": {
+        "twitter_userName": "BitShares",
+        "id": "503238457"
+    },
+    "BZRX": {
+        "twitter_userName": "bzxHQ",
+        "id": "951832405714841600"
+    },
+    "CDT": {
+        "twitter_userName": "Blox_Staking",
+        "id": "809512948788064257"
+    },
+    "CELR": {
+        "twitter_userName": "CelerNetwork",
+        "id": "969093664348631040"
+    },
+    "CHR": {
+        "twitter_userName": "Chromia",
+        "id": "978954459777814528"
+    },
+    "CHZ": {
+        "twitter_userName": "chiliz",
+        "id": "2590633042"
+    },
+    "CMT": {
+        "twitter_userName": "cometcoin",
+        "id": "734117654894632960"
+    },
+    "CND": {
+        "twitter_userName": "Cindicator",
+        "id": "4871918301"
+    },
+    "COMP": {
+        "twitter_userName": "CompoundCoin",
+        "id": "917851004925816832"
+    },
+    "COS": {
+        "twitter_userName": "contentosio",
+        "id": "1002471062443970565"
+    },
+    "COTI": {
+        "twitter_userName": "COTInetwork",
+        "id": "913327957904695297"
+    },
+    "CRV": {
+        "twitter_userName": "curvefinance",
+        "id": "1214050967986946051"
+    },
+    "CTSI": {
+        "twitter_userName": "cartesiproject",
+        "id": "976072413770207232"
+    },
+    "CTXC": {
+        "twitter_userName": "CTXCBlockchain",
+        "id": "957095686914244609"
+    },
+    "CVC": {
+        "twitter_userName": "civickey",
+        "id": "4711101020"
+    },
+    "DASH": {
+        "twitter_userName": "Dashpay",
+        "id": "2338506822"
+    },
+    "DATA": {
+        "twitter_userName": "streamr",
+        "id": "2797935057"
+    },
+    "DCR": {
+        "twitter_userName": "decredproject",
+        "id": "2349043879"
+    },
+    "DGB": {
+        "twitter_userName": "DigiByteCoin",
+        "id": "2266631022"
+    },
+    "DIA": {
+        "twitter_userName": "DIAdata_org",
+        "id": "1026772462296547328"
+    },
+    "DLT": {
+        "twitter_userName": "agrelloapp",
+        "id": "4897921972"
+    },
+    "DNT": {
+        "twitter_userName": "district0x",
+        "id": "865213817466142724"
+    },
+    "DOCK": {
+        "twitter_userName": "docknetwork",
+        "id": "931727472034398208"
+    },
+    "DOGE": {
+        "twitter_userName": "dogecoin",
+        "id": "2235729541"
+    },
+    "DOT": {
+        "twitter_userName": "Polkadot",
+        "id": "1595615893"
+    },
+    "DUSK": {
+        "twitter_userName": "DuskFoundation",
+        "id": "1006131468580552704"
+    },
+    "EGLD": {
+        "twitter_userName": "elrondnetwork",
+        "id": "986967941685153792"
+    },
+    "ELF": {
+        "twitter_userName": "aelfblockchain",
+        "id": "903565929719541760"
+    },
+    "ENJ": {
+        "twitter_userName": "enjin",
+        "id": "20356963"
+    },
+    "EOS": {
+        "twitter_userName": "block_one_",
+        "id": "862675563693125632"
+    },
+    "ETC": {
+        "twitter_userName": "eth_classic",
+        "id": "759252279862104064"
+    },
+    "ETH": {
+        "twitter_userName": "ethereum",
+        "id": "2312333412"
+    },
+    "EVX": {
+        "twitter_userName": "everexio",
+        "id": "718774766136532992"
+    },
+    "FET": {
+        "twitter_userName": "fetch_ai",
+        "id": "911245230426525697"
+    },
+    "FIL": {
+        "twitter_userName": "protocollabs",
+        "id": "823799206267625473"
+    },
+    "FIO": {
+        "twitter_userName": "joinFIO",
+        "id": "1050573550791225344"
+    },
+    "FLM": {
+        "twitter_userName": "FlamingoFinance",
+        "id": "1298598468378746881"
+    },
+    "FTM": {
+        "twitter_userName": "FantomFDN",
+        "id": "977020204071792641"
+    },
+    "FTT": {
+        "twitter_userName": "farmatrust",
+        "id": "887638060116082688"
+    },
+    "FUN": {
+        "twitter_userName": "FunFairTech",
+        "id": "871853588540248064"
+    },
+    "GNT": {
+        "twitter_userName": "golemproject",
+        "id": "4053977488"
+    },
+    "GO": {
+        "twitter_userName": "go_chain",
+        "id": "949313959445766144"
+    },
+    "GRS": {
+        "twitter_userName": "GroestlcoinTeam",
+        "id": "2425322684"
+    },
+    "GTO": {
+        "twitter_userName": "GIFTO_io",
+        "id": "911172484254150657"
+    },
+    "GVT": {
+        "twitter_userName": "genesis_vision",
+        "id": "868837446938742786"
+    },
+    "HBAR": {
+        "twitter_userName": "hashgraph",
+        "id": "898917341051965441"
+    },
+    "HC": {
+        "twitter_userName": "HcashOfficial",
+        "id": "877078771366453248"
+    },
+    "HIVE": {
+        "twitter_userName": "hiveblocks",
+        "id": "1237565114020175872"
+    },
+    "HNT": {
+        "twitter_userName": "HintoWin",
+        "id": "1150673688515231749"
+    },
+    "HOT": {
+        "twitter_userName": "protocol_hydro",
+        "id": "989815176625963014"
+    },
+    "ICX": {
+        "twitter_userName": "helloiconworld",
+        "id": "889691121000996864"
+    },
+    "IDEX": {
+        "twitter_userName": "idexio",
+        "id": "885947368159498240"
+    },
+    "IOST": {
+        "twitter_userName": "IOST_Official",
+        "id": "946758251902881792"
+    },
+    "IOTA": {
+        "twitter_userName": "iotatoken",
+        "id": "3992601857"
+    },
+    "IOTX": {
+        "twitter_userName": "iotex_io",
+        "id": "944255537121656833"
+    },
+    "IRIS": {
+        "twitter_userName": "irisnetwork",
+        "id": "938610515126792192"
+    },
+    "JST": {
+        "twitter_userName": "defi_just",
+        "id": "1250795698615758848"
+    },
+    "KAVA": {
+        "twitter_userName": "kava_labs",
+        "id": "1032773383958745088"
+    },
+    "KMD": {
+        "twitter_userName": "KomodoPlatform",
+        "id": "769457743807844352"
+    },
+    "KNC": {
+        "twitter_userName": "kybernetwork",
+        "id": "865963965649571840"
+    },
+    "KSM": {
+        "twitter_userName": "kusamanetwork",
+        "id": "1141423436671201282"
+    },
+    "LINK": {
+        "twitter_userName": "chainlink",
+        "id": "1530530365"
+    },
+    "LOOM": {
+        "twitter_userName": "loomnetwork",
+        "id": "912949947397439488"
+    },
+    "LRC": {
+        "twitter_userName": "loopringorg",
+        "id": "9130922"
+    },
+    "LSK": {
+        "twitter_userName": "LiskHQ",
+        "id": "4736263474"
+    },
+    "LTC": {
+        "twitter_userName": "LitecoinProject",
+        "id": "1393174363"
+    },
+    "LTO": {
+        "twitter_userName": "ltonetwork",
+        "id": "921008115599986689"
+    },
+    "MANA": {
+        "twitter_userName": "decentraland",
+        "id": "3291830170"
+    },
+    "MATIC": {
+        "twitter_userName": "maticnetwork",
+        "id": "914738730740715521"
+    },
+    "MBL": {
+        "twitter_userName": "moviebloc",
+        "id": "1105397558761779200"
+    },
+    "MCO": {
+        "twitter_userName": "cryptocom",
+        "id": "864347902029709314"
+    },
+    "MDA": {
+        "twitter_userName": "moedaseeds",
+        "id": "844185333478637568"
+    },
+    "MDT": {
+        "twitter_userName": "MeasurableData",
+        "id": "894992420718362624"
+    },
+    "MITH": {
+        "twitter_userName": "MithrilOfficial",
+        "id": "944091792269389824"
+    },
+    "MKR": {
+        "twitter_userName": "MakerDAO",
+        "id": "3190865591"
+    },
+    "MTH": {
+        "twitter_userName": "Monetha_io",
+        "id": "858954415176396800"
+    },
+    "MTL": {
+        "twitter_userName": "metalpaysme",
+        "id": "3111739836"
+    },
+    "NANO": {
+        "twitter_userName": "nano",
+        "id": "704476690139885568"
+    },
+    "NAS": {
+        "twitter_userName": "nebulasio",
+        "id": "869962138932002817"
+    },
+    "NAV": {
+        "twitter_userName": "NAVCoin",
+        "id": "2532881881"
+    },
+    "NEAR": {
+        "twitter_userName": "NEARProtocol",
+        "id": "1031949518609121280"
+    },
+    "NEBL": {
+        "twitter_userName": "NeblioTeam",
+        "id": "878291606830542848"
+    },
+    "NEO": {
+        "twitter_userName": "neo_blockchain",
+        "id": "2592325530"
+    },
+    "NKN": {
+        "twitter_userName": "nkn_org",
+        "id": "956866803094863873"
+    },
+    "NMR": {
+        "twitter_userName": "numerai",
+        "id": "4469439315"
+    },
+    "NULS": {
+        "twitter_userName": "nuls",
+        "id": "912987663052836864"
+    },
+    "NXS": {
+        "twitter_userName": "NexusOfficial",
+        "id": "2575764354"
+    },
+    "OAX": {
+        "twitter_userName": "OAX_Foundation",
+        "id": "862609366582571008"
+    },
+    "OCEAN": {
+        "twitter_userName": "oceanprotocol",
+        "id": "908581392061214720"
+    },
+    "OGN": {
+        "twitter_userName": "originprotocol",
+        "id": "928647522817417216"
+    },
+    "OMG": {
+        "twitter_userName": "omgnetworkhq",
+        "id": "831847934534746114"
+    },
+    "ONE": {
+        "twitter_userName": "BigONEexchange",
+        "id": "896769476766515200"
+    },
+    "ONG": {
+        "twitter_userName": "SoMeeOfficial",
+        "id": "2349928230"
+    },
+    "ONT": {
+        "twitter_userName": "OntologyNetwork",
+        "id": "922358568602365953"
+    },
+    "ORN": {
+        "twitter_userName": "orion_protocol",
+        "id": "970372386339147776"
+    },
+    "OXT": {
+        "twitter_userName": "OrchidProtocol",
+        "id": "917195081408319488"
+    },
+    "PAXG": {
+        "twitter_userName": "paxosglobal",
+        "id": "3389763521"
+    },
+    "PERL": {
+        "twitter_userName": "PerlinNetwork",
+        "id": "1001841190839271424"
+    },
+    "PHB": {
+        "twitter_userName": "red_pulse_china",
+        "id": "2893134987"
+    },
+    "PIVX": {
+        "twitter_userName": "_pivx",
+        "id": "4020178512"
+    },
+    "PNT": {
+        "twitter_userName": "Penta_GF",
+        "id": "949183234805456896"
+    },
+    "POA": {
+        "twitter_userName": "poanetwork",
+        "id": "854430875211124737"
+    },
+    "POE": {
+        "twitter_userName": "_poetproject",
+        "id": "842473913997250566"
+    },
+    "POLY": {
+        "twitter_userName": "polymathnetwork",
+        "id": "890365489658122242"
+    },
+    "POWR": {
+        "twitter_userName": "powerledger_io",
+        "id": "739770876808167424"
+    },
+    "PPT": {
+        "twitter_userName": "BitPopulous",
+        "id": "808032684270354433"
+    },
+    "QKC": {
+        "twitter_userName": "Quark_Chain",
+        "id": "973766864659734528"
+    },
+    "QLC": {
+        "twitter_userName": "QLCchain",
+        "id": "918011835554570240"
+    },
+    "QSP": {
+        "twitter_userName": "Quantstamp",
+        "id": "906057790707216384"
+    },
+    "QTUM": {
+        "twitter_userName": "qtum",
+        "id": "773009781644677120"
+    },
+    "RCN": {
+        "twitter_userName": "RCNFinance",
+        "id": "902262803557482496"
+    },
+    "RDN": {
+        "twitter_userName": "raiden_network",
+        "id": "907209378331336705"
+    },
+    "REN": {
+        "twitter_userName": "renprotocol",
+        "id": "893448476146544645"
+    },
+    "REP": {
+        "twitter_userName": "AugurProject",
+        "id": "2895317462"
+    },
+    "REQ": {
+        "twitter_userName": "requestnetwork",
+        "id": "888343534083944448"
+    },
+    "RLC": {
+        "twitter_userName": "iEx_ec",
+        "id": "775658150179508224"
+    },
+    "RSR": {
+        "twitter_userName": "reserveprotocol",
+        "id": "995796935817621504"
+    },
+    "RUNE": {
+        "twitter_userName": "thorchain_org",
+        "id": "1012021170244161536"
+    },
+    "RVN": {
+        "twitter_userName": "ravencoin",
+        "id": "910233733265018880"
+    },
+    "SAND": {
+        "twitter_userName": "thesandboxgame",
+        "id": "347831597"
+    },
+    "SC": {
+        "twitter_userName": "SiaTechHQ",
+        "id": "3351041295"
+    },
+    "SCRT": {
+        "twitter_userName": "secretnetwork",
+        "id": "3305325070"
+    },
+    "SKY": {
+        "twitter_userName": "Skycoinproject",
+        "id": "843014705618870273"
+    },
+    "SNGLS": {
+        "twitter_userName": "WeAreBreaker",
+        "id": "1120667211750940673"
+    },
+    "SNM": {
+        "twitter_userName": "sonmdevelopment",
+        "id": "818371891937296384"
+    },
+    "SNT": {
+        "twitter_userName": "ethstatus",
+        "id": "774689518767181828"
+    },
+    "SNX": {
+        "twitter_userName": "synthetix_io",
+        "id": "898875132864716800"
+    },
+    "SOL": {
+        "twitter_userName": "solana",
+        "id": "951329744804392960"
+    },
+    "STEEM": {
+        "twitter_userName": "Steemit",
+        "id": "711030662728437760"
+    },
+    "STMX": {
+        "twitter_userName": "stormxio",
+        "id": "3175291836"
+    },
+    "STORJ": {
+        "twitter_userName": "storjproject",
+        "id": "345738416"
+    },
+    "STPT": {
+        "twitter_userName": "STP_Networks",
+        "id": "1115345843664629760"
+    },
+    "STRAT": {
+        "twitter_userName": "stratisplatform",
+        "id": "734688391942524928"
+    },
+    "STX": {
+        "twitter_userName": "stx_coin",
+        "id": "883774743345758208"
+    },
+    "SUN": {
+        "twitter_userName": "defi_sunio",
+        "id": "1299250153992327169"
+    },
+    "SUSHI": {
+        "twitter_userName": "sushiswap",
+        "id": "1303577160234328066"
+    },
+    "SXP": {
+        "twitter_userName": "SwipeWallet",
+        "id": "2906318755"
+    },
+    "SYS": {
+        "twitter_userName": "syscoin",
+        "id": "119060937"
+    },
+    "TFUEL": {
+        "twitter_userName": "Theta_Network",
+        "id": "918994376105197568"
+    },
+    "THETA": {
+        "twitter_userName": "Theta_Network",
+        "id": "918994376105197568"
+    },
+    "TNB": {
+        "twitter_userName": "TimeNewBank",
+        "id": "929649576151154689"
+    },
+    "TOMO": {
+        "twitter_userName": "TomoChainANN",
+        "id": "933165746653245441"
+    },
+    "TRB": {
+        "twitter_userName": "WeAreTellor",
+        "id": "1113767494177755136"
+    },
+    "TROY": {
+        "twitter_userName": "troytrade",
+        "id": "1145721481487212544"
+    },
+    "TRX": {
+        "twitter_userName": "justinsuntron",
+        "id": "902839045356744704"
+    },
+    "UMA": {
+        "twitter_userName": "UMAprotocol",
+        "id": "1069285955549442054"
+    },
+    "UNI": {
+        "twitter_userName": "Unicoin_UNI",
+        "id": "840977216599130113"
+    },
+    "UTK": {
+        "twitter_userName": "UTRUST",
+        "id": "880470278408724481"
+    },
+    "VET": {
+        "twitter_userName": "vechainofficial",
+        "id": "908576143975919616"
+    },
+    "VIA": {
+        "twitter_userName": "viacoin",
+        "id": "2432540773"
+    },
+    "VIB": {
+        "twitter_userName": "viberate",
+        "id": "431417121"
+    },
+    "VIBE": {
+        "twitter_userName": "VibeHubVR",
+        "id": "4792182482"
+    },
+    "VIDT": {
+        "twitter_userName": "VIDT_Datalink",
+        "id": "3833343869"
+    },
+    "VITE": {
+        "twitter_userName": "vitelabs",
+        "id": "976294096808497152"
+    },
+    "WABI": {
+        "twitter_userName": "wabitoken",
+        "id": "885426541185818625"
+    },
+    "WAN": {
+        "twitter_userName": "wanchain_org",
+        "id": "883984505119297536"
+    },
+    "WAVES": {
+        "twitter_userName": "wavesprotocol",
+        "id": "707515829798182912"
+    },
+    "WING": {
+        "twitter_userName": "WingsToken",
+        "id": "1295734795750653960"
+    },
+    "WPR": {
+        "twitter_userName": "WePowerN",
+        "id": "887696537400332289"
+    },
+    "WRX": {
+        "twitter_userName": "wazirxindia",
+        "id": "955744720092835841"
+    },
+    "WTC": {
+        "twitter_userName": "Waltonchain",
+        "id": "903434091650883586"
+    },
+    "XEM": {
+        "twitter_userName": "NEMofficial",
+        "id": "2313671966"
+    },
+    "XLM": {
+        "twitter_userName": "StellarOrg",
+        "id": "2460502890"
+    },
+    "XMR": {
+        "twitter_userName": "monero",
+        "id": "2478439963"
+    },
+    "XRP": {
+        "twitter_userName": "Ripple",
+        "id": "1051053836"
+    },
+    "XTZ": {
+        "twitter_userName": "tezos",
+        "id": "745758443324080128"
+    },
+    "XVG": {
+        "twitter_userName": "vergecurrency",
+        "id": "4826209539"
+    },
+    "XVS": {
+        "twitter_userName": "VenusProtocol",
+        "id": "1304609819504984067"
+    },
+    "XZC": {
+        "twitter_userName": "zcoinofficial",
+        "id": "810263154458578944"
+    },
+    "YFI": {
+        "twitter_userName": "iearnfinance",
+        "id": "1223779978459770880"
+    },
+    "YFII": {
+        "twitter_userName": "dfimoney",
+        "id": "1287360350623391745"
+    },
+    "YOYO": {
+        "twitter_userName": "InfoYoyow",
+        "id": "776803955301093376"
+    },
+    "ZEC": {
+        "twitter_userName": "electriccoinco",
+        "id": "4633094778"
+    },
+    "ZEN": {
+        "twitter_userName": "horizenglobal",
+        "id": "873936272976474113"
+    },
+    "ZIL": {
+        "twitter_userName": "zilliqa",
+        "id": "872984298973941764"
+    },
+    "ZRX": {
+        "twitter_userName": "0xproject",
+        "id": "826699259441328128"
+    },
+    "AERGO": {
+        "twitter_userName": "AERGO_IO",
+        "id": "1006952860272058368"
+    },
+    "AUDIO": {
+        "twitter_userName": "AudiusProject",
+        "id": "1019723274693926912"
+    },
+    "BOT": {
+        "twitter_userName": "bounce_finance",
+        "id": "1285409312085471232"
+    },
+    "CTK": {
+        "twitter_userName": "certik_io",
+        "id": "993673575230996480"
+    },
+    "INJ": {
+        "twitter_userName": "InjectiveLabs",
+        "id": "1062118922147659776"
+    },
+    "RENBTC": {
+        "twitter_userName": "renprotocol",
+        "id": "893448476146544645"
+    },
+    "HARD": {
+        "twitter_userName": "hard_protocol",
+        "id": "1304194975798755328"
+    },
+    "AXS": {
+        "twitter_userName": "AxieInfinity",
+        "id": "957716432430641152"
+    },
+    "AKRO": {
+        "twitter_userName": "akropolisio",
+        "id": "935139646224371712"
+    }
+}
