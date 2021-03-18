@@ -1,5 +1,3 @@
-=================================================
-
 # Sniffer Bot :
 
 This bot scans multiple pairs on binance exchange and see price movement for more than 2% on 1m, 3m , 5m.
