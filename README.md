@@ -46,7 +46,7 @@ there is mainly 3 file which runs the bot :
 
 =================================================
 
-### database
+### Database
 
 all data is stored in .json format and currently there is no data base used.
 
@@ -58,7 +58,7 @@ all data is stored in .json format and currently there is no data base used.
 
 =================================================
 
-### fetching data from coinmarketcap and creating twitter data base.
+### Fetching data from coinmarketcap and creating twitter data base.
 
 we use coin market cap to get twitter account details.
 We need to refreash our coin list and twitter account time 2 time.
