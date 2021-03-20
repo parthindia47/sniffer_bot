@@ -53,7 +53,7 @@ there is mainly 3 file which runs the bot :
 
 all data is stored in .json format and currently there is no data base used.
 
-1) coin_twitter_acc_db_symbolAsKey.json
+1) coin_twitterDB_SymbolAsKey.json
 - hold information about twitter id and twitter accounts of each coin.
 
 2) user_list_sniffer_bot.json
