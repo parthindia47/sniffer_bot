@@ -22,7 +22,7 @@ It's availible on telegram at : @Cryptosnifferbot_bot
 8. on 2 seperate shells run this 2 files :
    python binance_data_fetch.py
    python sniffer_bot_main_telegram_process.py
-6. deactivate that virtualenv : .\sniffer_env\Scripts\deactivate **( for mac => source sniffer_env/bin/deactivate )**
+6. deactivate that virtualenv : .\sniffer_env\Scripts\deactivate **( for mac => deactivate )**
 
 
 command list for mac users : https://support.apple.com/en-in/guide/mac-help/cpmh0152/mac.
