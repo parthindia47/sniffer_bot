@@ -51,7 +51,7 @@ there is mainly 3 file which runs the bot :
 
 ### Database
 
-all data is stored in .json format and currently there is no data base used.
+all data is stored in .json format and currently there is no DBMS is used.
 
 1) coin_twitterDB_SymbolAsKey.json
 - hold information about twitter id and twitter accounts of each coin.
