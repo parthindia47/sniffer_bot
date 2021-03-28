@@ -76,4 +76,7 @@ following steps need to be followed :
 
 =================================================
 
-To create r.txt file : pip freeze > r.txt
+### Usefull Info :
+
+1) To create r.txt file : pip freeze > r.txt
+2) To kill all running python shells : pkill -9 python
