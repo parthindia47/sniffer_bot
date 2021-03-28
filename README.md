@@ -10,7 +10,7 @@ It's availible on telegram at : @Cryptosnifferbot_bot
 
 =================================================
 
-### Setting up environment for development :
+### Setting up your environment for development :
 
 1. First install virtuale env : pip install virtualenv. ( use virtualenv --version to see if virualenv is installed ).
 2. Use python -V to see version. We need python 3 for our project. If you do not have python 3 , then install from here : https://www.python.org/downloads/mac-osx/.
@@ -34,9 +34,9 @@ command list for mac users : https://support.apple.com/en-in/guide/mac-help/cpmh
 there is mainly 3 file which runs the bot :
 
 1) sniffer_bot_main_telegram_process.py
-- this file is responsible for use management in the bot.
-- it identify commands like /addme , /removeme.
-- it also send socket message to binance_data_fetch.py , to make user registration real time.
+- this file is responsible for user management in the bot.
+- it identify commands like /addme , /removeme, /myhealth, /start.
+- it also send socket message to binance_data_fetch.py , to make user registration in real time.
 
 2) binance_data_fetch.py
 - this is the main file which do all data processing.
@@ -67,7 +67,7 @@ we use coin market cap to get twitter account details.
 We need to refreash our coin list and twitter account time 2 time.
 
 following steps need to be followed :
-1) firsh upto data from cmc is needed : run cmc_data_fetch.py file , this will create CMC_Coin_Details_Auto_*.xls file
+1) first upto data from cmc is needed : run cmc_data_fetch.py file , this will create CMC_Coin_Details_Auto_*.xls file
 2) copy content of this file to : coin_comparision_twitter_accounts_cmc.xls.
 3) using coin_comparision_twitter_accounts_cmc.xls find out which coins are added to binance, we don't worry about which coins are removed. just find added coins and their twitter ids.
 4) add this new data to : list_of_twitter_accounts.csv. remember we always do incremental changes.
