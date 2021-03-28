@@ -5,9 +5,9 @@ Created on Thu Aug 13 22:38:55 2020
 @author: Parth Pandya
 
 About:
-    This file will be responsible for ferching price data.
+    This file will be responsible for ferching price data from exchange.
 
-development:
+Development:
 
     1. comparision of CCXT market pairs and Binance market pair done
        - BCH , BSV have some different names anyways we don't want to
@@ -35,7 +35,6 @@ from binance.client import Client
 from binance.websockets import BinanceSocketManager
 from binance.enums import *
 import pprint
-#import ccxt
 from datetime import datetime , timedelta
 import time
 import time as sleep
@@ -52,7 +51,6 @@ from pytz import timezone
 from dateutil import tz
 import json
 import statistics
-#import winsound
 import csv
 import socketserver
 import subprocess
@@ -92,7 +90,7 @@ class Binance_Kline(IntEnum):
     TakerBuyquoteAssetVolume = 10
     Ignore = 11
 
-# various client objects
+# various client objects to set up various agents.
 client_BINANCE = None
 client_TWITTER = None
 telegram_bot = None
@@ -100,7 +98,7 @@ binance_obj_ccxt = None
 binance_obj_ccxt_markets = None
 twitt_info_dict = None
 
-#some random globals
+#some random global variables.
 rootLogger = None
 server = None
 closing_this_script = False
@@ -124,12 +122,12 @@ process3_candle_dict_5m = {}
 process4_candle_dict_5m = {}
 
 # thresold values to generate signals
-change_pc_thresold = 200
-amp_pc_thresold = 200
-minimum_sat_value = 200
-vol24h_thresold = 12
-lowerleg_pc_thresold = 1200
-TRADE_BASE_CURRENCY = "BTC"
+change_pc_thresold = 200 #change thresold is 2%
+amp_pc_thresold = 200 # amplitude thresold is 2%
+minimum_sat_value = 200 # coin need to be minimum 200 sat
+lowerleg_pc_thresold = 1200 # planned to use this for lower wicks. identify 12% wicks.
+TRADE_BASE_CURRENCY = "BTC" #base currency.
+vol24h_thresold = 12 # past 24 hr volume must be 12 BTC.
 
 # this globals are used to count coins every minute.
 current_time_stamp_process1 = 0
@@ -149,13 +147,13 @@ prev_time_stamp_process4 = 0
 total_coin_process4 = 0
 
 # some locks and critical resources
-dummy_trades_in_progress = {}
-CHAT_IDs = []
+telegram_user_list_json_path = r"user_list_sniffer_bot.json"
+CHAT_IDs = [] # telegram user list
 data_lock = threading.Lock()
 id_list_lock = threading.Lock()
-telegram_user_list_json_path = r"user_list_sniffer_bot.json"
+dummy_trades_in_progress = {}
 
-#timings for algo
+#timings for algo start and end
 algo_start_time = datetime_time(0,2,00)
 algo_end_time = datetime_time(11,59,00)
 
@@ -173,10 +171,13 @@ def set_logger():
     fileName = "log_" + os.path.basename(__file__).split(".")[0] + str(datetime.now().date()) + ".log"
     logger_full_path = os.path.join( logger_dir, fileName )
 
+    #fileHandler to store logs to file.
     fileHandler = logging.FileHandler(logger_full_path)
     fileHandler.setFormatter(logFormatter)
     rootLogger.addHandler(fileHandler)
 
+    #consoleHandler to display content on console.
+    #this can be turned off during production.
     consoleHandler = logging.StreamHandler(sys.stdout)
     consoleHandler.setFormatter(logFormatter)
     rootLogger.addHandler(consoleHandler)
@@ -208,7 +209,7 @@ def exit_script():
 
             process_obj = dummy_trades_in_progress[dummy_trade_process]["proc_obj"]
             #this part to be used on linux servers.
-            os.kill( process_obj.pid , signal.SIGINT)
+            os.kill( int(process_obj.pid) , signal.SIGINT)
             #process_obj.send_signal(signal.SIGINT)
 
             #this part works on windows.
@@ -230,10 +231,9 @@ def exit_script():
     sleep.sleep(2)
     os._exit(0)
 
-#remove this in linux server
-#def playsound():
-#    winsound.Beep(5000, 300)
-
+def playsound():
+    sys.stdout.write('\a')
+    sys.stdout.flush()
 
 def send_telegram_msg_to_all( tlg_msg ):
 
@@ -290,6 +290,9 @@ def set_client_Telegram():
     telegram_bot = Bot(token=TOKEN)
     update_chat_id_list()
 
+# a local TCP server which listen from various other processes.
+# mainly front end telegram processe
+# and dummy trade shells.
 class MyTCPHandler(socketserver.BaseRequestHandler):
 
     global id_list_lock
@@ -310,17 +313,18 @@ class MyTCPHandler(socketserver.BaseRequestHandler):
             try:
                 data = json.loads(data)
 
-                rootLogger.info("new data received in TCP socket")
-                # update the json file , we will aquire lock to update json file
-                # and also to access dummy trade list.
-
+                rootLogger.info("TCP socket Msg received")
 
                 if "src" in data :
 
                     # if this message is coming from dummy trades
                     if data["src"] == "dummy_trade":
 
+                        # update the json file , we will aquire lock to update json file
+                        # and also to access dummy trade list.
                         data_lock.acquire()
+
+                        rootLogger.info("TCP socket server : Dummy trade update received.")
 
                         trade_data = data["payload"]
                         original_dict = read_key(trade_data["id"])
@@ -330,8 +334,7 @@ class MyTCPHandler(socketserver.BaseRequestHandler):
 
                         del dummy_trades_in_progress[ trade_data["pair"] ]
 
-                        #print the trade update received also need to send on telegram.
-
+                        #Log the dummy trade data and send it to all telegram subscribers.
                         result_str = "trade complete : " +  \
                                      trade_data["pair"] + " " + \
                                      trade_data["results"] + " hit \n" + \
@@ -348,11 +351,13 @@ class MyTCPHandler(socketserver.BaseRequestHandler):
 
                     #if this message is coming from telegram thread
                     elif data["src"] == "telegram":
+
                         if data["payload"] == "update_users":
-                            rootLogger.info("update telegram users")
-                            # lock is aquired inside call
+                            rootLogger.info("TCP Socket server : update telegram users")
+                            # lock is aquired inside following call.
                             update_chat_id_list()
                         if data["payload"] == "send_health":
+                            rootLogger.info("TCP Socket server : send health of thread to telegram")
                             self.request.sendto( str(coin_count_list).encode() , self.client_address )
 
 
@@ -471,7 +476,9 @@ def get_twitter_timeline( crypto_name ):
 
     if crypto_name in twitt_info_dict:
         crypto_twitter_ID = twitt_info_dict[crypto_name]["id"]
+        rootLogger.info("get_twitter_timeline " + crypto_name + " match ")
     else:
+        rootLogger.info("get_twitter_timeline " + crypto_name + " no entry in data base ")
         return None
 
     tweets = client_TWITTER.user_timeline( id = crypto_twitter_ID, count = 10 )
@@ -568,6 +575,7 @@ def generate_alert( alert_symbol_pair, candle_tupel ):
 
     interval = get_int_interval_from_str( candle_tupel[ Kline_data.I ] )
 
+    # check minimum sat value and 24 hr volume in base currency.
     if ( volume24hr_base_coin > vol24h_thresold and int( candle_tupel[Kline_data.C]*100000000 ) > minimum_sat_value ) :
 
         alert_data_dict["pair"] = alert_symbol_pair
@@ -578,7 +586,7 @@ def generate_alert( alert_symbol_pair, candle_tupel ):
         twitt_list = get_twitter_timeline( get_symbol_name_from_pair(alert_symbol_pair, TRADE_BASE_CURRENCY) )
 
         if twitt_list is not None and len(twitt_list) > 0:
-            # this can be negative also if latest tweet came after candle
+            # note : this can be negative also if latest tweet came after candle
             last_activity_age = ( candle_tupel[ Kline_data.dT ] - twitt_list[0]["time"] ).total_seconds()
             alert_data_dict["last_tweet_age_sec"] = int(last_activity_age)
             alert_data_dict["last_tweet_age_min"] = int(last_activity_age/60.0)
@@ -594,6 +602,7 @@ def generate_alert( alert_symbol_pair, candle_tupel ):
                                                 start_str = candle_tupel[ Kline_data.iT ] - 20*interval*60*1000, \
                                                 end_str = candle_tupel[ Kline_data.iT ] )
 
+        # we will ask for 21 candels.
         if len(candles) == 21 and ( candles[-1][Binance_Kline.OpenTime] == candle_tupel[ Kline_data.iT ] ):
 
             current_candle_volume = float( candles[-1][Binance_Kline.QuoteAssetVolume] )
@@ -610,6 +619,7 @@ def generate_alert( alert_symbol_pair, candle_tupel ):
             average_volume_20 = statistics.mean(volume_list)
             sdeviation_volume_20 = statistics.pstdev(volume_list)
 
+            # this is to avoid devide by zero problem.
             if average_volume_20 == 0:
                 average_volume_20 = 1
 
@@ -631,6 +641,7 @@ def generate_alert( alert_symbol_pair, candle_tupel ):
             alert_data_dict["zero_volume_counter"] = None
             alert_data_dict["candles_received"] = None #candles
 
+        # build a unique trade ID.
         alert_data_dict["tradeID"] = alert_symbol_pair + "_"+ \
                              str(candle_tupel[ Kline_data.iT ]) + "_" +\
                              str(candle_tupel[ Kline_data.dT ].hour).zfill(2) + \
@@ -639,6 +650,7 @@ def generate_alert( alert_symbol_pair, candle_tupel ):
                              "C" + str(candle_tupel[ Kline_data.CHG ]) + "_" +\
                              "A" + str(candle_tupel[ Kline_data.AMP ]) + "_"
 
+        # attach 'x' if there is no tweet , other wise attach the minute last tweet happened.
         if alert_data_dict["last_tweet_age_min"] is not None:
            alert_data_dict["tradeID"] = alert_data_dict["tradeID"] + "T" + str(alert_data_dict["last_tweet_age_min"])
         else:
@@ -649,7 +661,8 @@ def generate_alert( alert_symbol_pair, candle_tupel ):
         if alert_data_dict["last_tweet_age_min"] is not None and alert_data_dict["last_tweet_age_min"] < 15:
 
             data_lock.acquire()
-            #log this call some where and if possible start a dummy trade.
+
+            #log this call again only if the there is no on going thread.
             if alert_data_dict["pair"] not in dummy_trades_in_progress:
 
                 order_pc = 0.5
@@ -670,9 +683,9 @@ def generate_alert( alert_symbol_pair, candle_tupel ):
                 alert_data_dict["dummy_order_status"] = "pending"
 
                 # start dummy order in background.
-#                proc_obj = subprocess.Popen( [ "python3", "binance_dummy_trade.py", json.dumps(alert_data_dict["dummy_order_fired"]) ] , shell = False )
-#                dummy_trades_in_progress[ alert_data_dict["pair"] ] = { "proc_obj" : proc_obj , \
-#                                                                       "trade_id" : alert_data_dict["tradeID"] }
+                proc_obj = subprocess.Popen( [ "python3", "binance_dummy_trade.py", json.dumps(alert_data_dict["dummy_order_fired"]) ] , shell = False )
+                dummy_trades_in_progress[ alert_data_dict["pair"] ] = { "proc_obj" : proc_obj , \
+                                                                       "trade_id" : alert_data_dict["tradeID"] }
 
 
 
@@ -705,15 +718,14 @@ def generate_alert( alert_symbol_pair, candle_tupel ):
             write_key( alert_data_dict["tradeID"], alert_data_dict )
             data_lock.release()
 
-        #irrepective of anything log the call
+        #log any call and play beep.
         rootLogger.info("new signal detected : " + alert_data_dict["tradeID"] + "\n" )
-        #threading.Thread( target = playsound, daemon = True ).start()
+        threading.Thread( target = playsound, daemon = True ).start()
 
 
 def background_process_awake():
     global coin_count_list
     sleep.sleep(30)
-
 
     coin_count_csv_dir = os.path.join(os.path.normpath(os.getcwd()), 'coin_count_dir')
     Path(coin_count_csv_dir).mkdir(parents=True, exist_ok=True)
@@ -732,7 +744,7 @@ def background_process_awake():
         csvwriter = csv.writer(csvfile)
         csvwriter.writerow(coin_count_list)
 
-
+# these are socket threads which receives updates from exchange whenever availible.
 def process_message1(msg):
 
     global process1_candle_dict_1m
@@ -745,7 +757,9 @@ def process_message1(msg):
 
     if msg['e'] == 'kline' and msg['k']['x'] == True:
 
-        # code to understand start of messages
+        # code to understand exact starting point of messages from exchange every 1 m.
+        # time.time() gives number of seconds since epoch in decimal that is why
+        # we are multiplying with 1000 to get milliseconds.
         current_time_stamp_process1 = int( round(time.time() * 1000) )
         diff_time_stamp = current_time_stamp_process1 - prev_time_stamp_process1
 
@@ -757,7 +771,6 @@ def process_message1(msg):
         #rootLogger.info( "diff " + str( diff_time_stamp ))
         total_coin_process1 = total_coin_process1 + 1
         prev_time_stamp_process1 = current_time_stamp_process1
-
 
         candle_datetime = datetime.fromtimestamp( msg['k']['t'] / 1e3 )
 
@@ -792,6 +805,7 @@ def process_message1(msg):
 #        with open("candle_details.txt", "a") as file1:
 #            file1.write(str(process1_candle_dict_1m[ msg['s'] ][-1]) + "\n")
 
+        # we check minimum criteria of amplitude and percentage change before generating alert.
         if chg > change_pc_thresold or amp > amp_pc_thresold:
             threading.Thread( target = generate_alert, \
               args = ( msg['s'], process1_candle_dict_1m[ msg['s'] ][-1] ) ,\

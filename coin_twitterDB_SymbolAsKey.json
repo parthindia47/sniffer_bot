@@ -858,5 +858,189 @@
     "AKRO": {
         "twitter_userName": "akropolisio",
         "id": "935139646224371712"
+    },
+    "DREP": {
+        "twitter_userName": "FoundationDrep",
+        "id": "1085435717751169025"
+    },
+    "1INCH": {
+        "twitter_userName": "1inchExchange",
+        "id": "1137038394503114753"
+    },
+    "ACM": {
+        "twitter_userName": "actiniumcrypto",
+        "id": "1000849334320189440"
+    },
+    "ALICE": {
+        "twitter_userName": "MyNeighborAlice",
+        "id": "1329587028632219648"
+    },
+    "ASR": {
+        "twitter_userName": "socios",
+        "id": "1001022572186820608"
+    },
+    "ATM": {
+        "twitter_userName": "socios",
+        "id": "1001022572186820608"
+    },
+    "AUCTION": {
+        "twitter_userName": "bounce_finance",
+        "id": "1285409312085471232"
+    },
+    "BADGER": {
+        "twitter_userName": "badgerdao",
+        "id": "1289558152581722113"
+    },
+    "BTCST": {
+        "twitter_userName": "btcst2020",
+        "id": "1342290392495005697"
+    },
+    "CAKE": {
+        "twitter_userName": "pancakeswap",
+        "id": "1305349277422477313"
+    },
+    "CELO": {
+        "twitter_userName": "CeloOrg",
+        "id": "1009135067153616896"
+    },
+    "CKB": {
+        "twitter_userName": "nervosnetwork",
+        "id": "998063321763926017"
+    },
+    "DEGO": {
+        "twitter_userName": "dego_finance",
+        "id": "1295108677918248961"
+    },
+    "DODO": {
+        "twitter_userName": "BreederDodo",
+        "id": "1263479224419012619"
+    },
+    "EASY": {
+        "twitter_userName": "EasyfiNetwork",
+        "id": "1290868462235947009"
+    },
+    "FIRO": {
+        "twitter_userName": "firoorg",
+        "id": "810263154458578944"
+    },
+    "FIS": {
+        "twitter_userName": "Stafi_Protocol",
+        "id": "1153497081148928000"
+    },
+    "FOR": {
+        "twitter_userName": "ForTubeFi",
+        "id": "1023450698837516288"
+    },
+    "FRONT": {
+        "twitter_userName": "FrontierDotXYZ",
+        "id": "1181559690599129094"
+    },
+    "FXS": {
+        "twitter_userName": "fraxfinance",
+        "id": "1123761442824519682"
+    },
+    "GLM": {
+        "twitter_userName": "golemproject",
+        "id": "4053977488"
+    },
+    "GRT": {
+        "twitter_userName": "goldenratioteam",
+        "id": "1247973008834285569"
+    },
+    "JUV": {
+        "twitter_userName": "juventusfcen",
+        "id": "1638021792"
+    },
+    "LINA": {
+        "twitter_userName": "lina_network",
+        "id": "940859323995115522"
+    },
+    "LIT": {
+        "twitter_userName": "lition_block",
+        "id": "982233146832764928"
+    },
+    "OG": {
+        "twitter_userName": "socios",
+        "id": "1001022572186820608"
+    },
+    "OM": {
+        "twitter_userName": "MANTRADAO",
+        "id": "1268789250272550913"
+    },
+    "PERP": {
+        "twitter_userName": "perpprotocol",
+        "id": "1231831448509829121"
+    },
+    "PHA": {
+        "twitter_userName": "PhalaNetwork",
+        "id": "1166273105456578561"
+    },
+    "POND": {
+        "twitter_userName": "MarlinProtocol",
+        "id": "974293707900858368"
+    },
+    "PSG": {
+        "twitter_userName": "socios",
+        "id": "1001022572186820608"
+    },
+    "RAMP": {
+        "twitter_userName": "RampDefi",
+        "id": "1219119953728557056"
+    },
+    "REEF": {
+        "twitter_userName": "ReefDeFi",
+        "id": "1294974404233965570"
+    },
+    "RIF": {
+        "twitter_userName": "rif_os",
+        "id": "1025113070933356544"
+    },
+    "ROSE": {
+        "twitter_userName": "OasisProtocol",
+        "id": "1149448314158342144"
+    },
+    "SFP": {
+        "twitter_userName": "isafepal",
+        "id": "1068417957686992896"
+    },
+    "SKL": {
+        "twitter_userName": "SkaleNetwork",
+        "id": "998721198958641152"
+    },
+    "STRAX": {
+        "twitter_userName": "stratisplatform",
+        "id": "734688391942524928"
+    },
+    "SUPER": {
+        "twitter_userName": "supercoinv2",
+        "id": "939236612759842819"
+    },
+    "SUSD": {
+        "twitter_userName": "synthetix_io",
+        "id": "898875132864716800"
+    },
+    "TRU": {
+        "twitter_userName": "TrustToken",
+        "id": "899820889943949316"
+    },
+    "TVK": {
+        "twitter_userName": "terra_virtua",
+        "id": "960068923759751168"
+    },
+    "TWT": {
+        "twitter_userName": "TrustWalletApp",
+        "id": "911011433147654144"
+    },
+    "UNFI": {
+        "twitter_userName": "unifiprotocol",
+        "id": "1293456657465217024"
+    },
+    "ANKR": {
+        "twitter_userName": "ankr",
+        "id": "1010430329218371584"
+    },
+    "TCT": {
+        "twitter_userName": "TokenClub_TCT",
+        "id": "936489753142181888"
     }
 }
