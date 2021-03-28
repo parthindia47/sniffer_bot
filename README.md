@@ -67,7 +67,7 @@ we use coin market cap to get twitter account details.
 We need to refreash our coin list and twitter account time 2 time.
 
 following steps need to be followed :
-1) first upto data from cmc is needed : run cmc_data_fetch.py file , this will create CMC_Coin_Details_Auto_*.xls file
+1) first upto date data from cmc is needed : run cmc_data_fetch.py file , this will create CMC_Coin_Details_Auto_*.xls file
 2) copy content of this file to : coin_comparision_twitter_accounts_cmc.xls.
 3) using coin_comparision_twitter_accounts_cmc.xls find out which coins are added to binance, we don't worry about which coins are removed. just find added coins and their twitter ids.
 4) add this new data to : list_of_twitter_accounts.csv. remember we always do incremental changes.
