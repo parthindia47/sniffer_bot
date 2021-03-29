@@ -156,6 +156,7 @@ dummy_trades_in_progress = {}
 #timings for algo start and end
 algo_start_time = datetime_time(0,2,00)
 algo_end_time = datetime_time(11,59,00)
+MAX_RETRY = 7
 
 
 def set_logger():
@@ -462,7 +463,12 @@ def set_client_TWITTER():
     #This handles Twitter authetification and the connection to Twitter Streaming API
     auth = OAuthHandler(consumer_key, consumer_secret)
     auth.set_access_token(access_token, access_token_secret)
-    client_TWITTER = tweepy.API(auth)
+
+    try:
+        client_TWITTER = tweepy.API(auth)
+        rootLogger.info("Twitter client connected succefully")
+    except Exception as e:
+        rootLogger.info("Issue connectining twitter client " + str(e) )
 
 
 # function will return top 3 activity of given crypto
@@ -471,17 +477,38 @@ def set_client_TWITTER():
 # note : need to run set_client_TWITTER() before using this.
 def get_twitter_timeline( crypto_name ):
 
+    global client_TWITTER
     tweet_list = []
     Max_twitts = 1
+    try_count = 0
 
     if crypto_name in twitt_info_dict:
         crypto_twitter_ID = twitt_info_dict[crypto_name]["id"]
-        rootLogger.info("get_twitter_timeline " + crypto_name + " match ")
+        rootLogger.info("<<< get_twitter_timeline => " + crypto_name + " <= ENTRY found in data base. >>>")
     else:
-        rootLogger.info("get_twitter_timeline " + crypto_name + " no entry in data base ")
+        rootLogger.info("<<< get_twitter_timeline => " + crypto_name + " <= NO entry found in data base , exiting. >>>")
         return None
 
-    tweets = client_TWITTER.user_timeline( id = crypto_twitter_ID, count = 10 )
+    while try_count < MAX_RETRY:
+        try:
+            tweets = client_TWITTER.user_timeline( id = crypto_twitter_ID, count = 5 )
+            rootLogger.info( "<<< twitter timeline fetching succesful >>> " + crypto_name )
+            break
+        except Exception as e:
+            rootLogger.exception( "<<< exception while fetching twitter time line : " + crypto_name + " " + str(e) + " >>>")
+            try_count = try_count + 1
+            sleep.sleep(30)
+            
+            try:
+                set_client_TWITTER()
+            except Exception as e:
+                rootLogger.exception("Issue with set twitter client " + str(e))
+
+            continue
+
+    if try_count >= MAX_RETRY:
+        rootLogger.info( "<<< failed even after 5 calls >>> " + crypto_name )
+        return None
 
     for tweet in tweets:
 
@@ -566,12 +593,26 @@ def get_int_interval_from_str( str_interval ):
 
 def generate_alert( alert_symbol_pair, candle_tupel ):
 
-    global dummy_trades_in_progress
+    global dummy_trades_in_progress #queue to know which dummy trades are in progress.
+    candles = None
+    volume24hr_base_coin = 0
     alert_data_dict = {}
+    try_count = 0
 
-    data24hr = client_BINANCE.get_ticker(symbol = alert_symbol_pair)
+    while try_count < MAX_RETRY:
+        try:
+            data24hr = client_BINANCE.get_ticker(symbol = alert_symbol_pair)
+            volume24hr_base_coin  = int( round( float( data24hr["quoteVolume"] ) ,0))
+            break
+        except Exception as e:
+            rootLogger.exception( "<<< exception while fetching 24 hr volume: " + alert_symbol_pair + " " + str(e) + " >>> ")
+            try_count = try_count + 1
+            sleep.sleep(30)
+            continue
+
+    if try_count >= MAX_RETRY:
+        rootLogger.info("<<< 24 hr max retry failed >>>")
     #volume24hr_trade_coin = int( round( data24hr["volume"], 0 ) )
-    volume24hr_base_coin  = int( round( float( data24hr["quoteVolume"] ) ,0) )
 
     interval = get_int_interval_from_str( candle_tupel[ Kline_data.I ] )
 
@@ -597,13 +638,24 @@ def generate_alert( alert_symbol_pair, candle_tupel ):
             alert_data_dict["last_tweet_activities"] = None
 
         # fetch last 21 candles of same time frame to see volume breakout on same time frame
-        candles = client_BINANCE.get_historical_klines( alert_symbol_pair, \
-                                                candle_tupel[ Kline_data.I ], \
-                                                start_str = candle_tupel[ Kline_data.iT ] - 20*interval*60*1000, \
-                                                end_str = candle_tupel[ Kline_data.iT ] )
+        while try_count > MAX_RETRY:
+            try:
+                candles = client_BINANCE.get_historical_klines( alert_symbol_pair, \
+                                                        candle_tupel[ Kline_data.I ], \
+                                                        start_str = candle_tupel[ Kline_data.iT ] - 20*interval*60*1000, \
+                                                        end_str = candle_tupel[ Kline_data.iT ] )
+                break
+            except Exception as e:
+                rootLogger.exception( "<<< exception while fetching historical 20 candles for : " + alert_symbol_pair + " " + str(e) + " >>>")
+                try_count = try_count + 1
+                sleep.sleep(30)
+                continue
 
-        # we will ask for 21 candels.
-        if len(candles) == 21 and ( candles[-1][Binance_Kline.OpenTime] == candle_tupel[ Kline_data.iT ] ):
+        if try_count >= MAX_RETRY:
+            rootLogger.info("<<< historical candles max retry failed >>>")
+
+        # we will ask for 21 candels one is current candle and other 20 are previous candles.
+        if candles and len(candles) == 21 and ( candles[-1][Binance_Kline.OpenTime] == candle_tupel[ Kline_data.iT ] ):
 
             current_candle_volume = float( candles[-1][Binance_Kline.QuoteAssetVolume] )
             del candles[-1]
@@ -656,7 +708,7 @@ def generate_alert( alert_symbol_pair, candle_tupel ):
         else:
            alert_data_dict["tradeID"] = alert_data_dict["tradeID"] + "Tx"
 
-        #============================================================
+        #=================================================================================================
 
         if alert_data_dict["last_tweet_age_min"] is not None and alert_data_dict["last_tweet_age_min"] < 15:
 
