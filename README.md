@@ -1,9 +1,9 @@
 # Sniffer Bot :
 
-This bot scans multiple pairs on binance exchange and see price movement for more than 2% on 1m, 3m , 5m.
-when such incident occurs it will check twitter account for that coin.
-if there is twitt made in short span say 5 min , then this bot will notify on telegram.
-It also generates dummy trade to check validity of detected signals.
+This bot scans multiple pairs on binance exchange and see price movement in terms of change and amplitude for more than 2% on 1m, 3m , 5m candles.
+when such incident occurs it will check twitter account timelines for that coin.
+if there is twitt made in short span say 15 min , then this bot will send notification on telegram.
+It also generates dummy trade with SL and TP , to check validity of detected signals.
 It also holds files for creating twitter data base.
 
 It's availible on telegram at : @Cryptosnifferbot_bot
@@ -19,7 +19,7 @@ It's availible on telegram at : @Cryptosnifferbot_bot
 5. create a virtual env with python3 ( specify your python3 path ): virtualenv --python="C:\Users\a0490374\AppData\Local\Programs\Python\Python39\python.exe" sniffer_env.
 6. activate that virtualenv : .\sniffer_env\Scripts\activate **( for mac => source sniffer_env/bin/activate )**: https://gist.github.com/Geoyi/d9fab4f609e9f75941946be45000632b )
 7. r.txt is availible in repo : pip install -r r.txt
-8. on 2 seperate shells run this 2 files :
+8. Now on 2 seperate shells ( cmd on windows ) run these 2 files :
    python binance_data_fetch.py
    python sniffer_bot_main_telegram_process.py
 6. deactivate that virtualenv : .\sniffer_env\Scripts\deactivate **( for mac => deactivate )**
