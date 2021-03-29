@@ -20,8 +20,8 @@ It's availible on telegram at : @Cryptosnifferbot_bot
 6. activate that virtualenv : .\sniffer_env\Scripts\activate **( for mac => source sniffer_env/bin/activate )**: https://gist.github.com/Geoyi/d9fab4f609e9f75941946be45000632b )
 7. r.txt is availible in repo : pip install -r r.txt
 8. Now on 2 seperate shells ( cmd on windows ) run these 2 files :
-   python binance_data_fetch.py
-   python sniffer_bot_main_telegram_process.py
+   - python binance_data_fetch.py
+   - python sniffer_bot_main_telegram_process.py
 6. deactivate that virtualenv : .\sniffer_env\Scripts\deactivate **( for mac => deactivate )**
 
 
