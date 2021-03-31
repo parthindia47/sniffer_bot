@@ -1,0 +1,8 @@
+binance_data_fetch_logs/
+coin_count_dir/
+coin_list_dir/
+dummy_trade_logs/
+main_telegram_process_logs/
+sniffer_env/
+trade_signals_dir/
+Terminal.app
