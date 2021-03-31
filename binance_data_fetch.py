@@ -157,6 +157,7 @@ dummy_trades_in_progress = {}
 algo_start_time = datetime_time(0,2,00)
 algo_end_time = datetime_time(11,59,00)
 MAX_RETRY = 7
+Current_OS = "LINUX":
 
 
 def set_logger():
@@ -193,6 +194,7 @@ def exit_script():
     global data_lock
     global server
     global closing_this_script
+    global Current_OS
 
     rootLogger.info("terminating this script aquiring data lock before that.")
 
@@ -210,12 +212,13 @@ def exit_script():
 
             process_obj = dummy_trades_in_progress[dummy_trade_process]["proc_obj"]
             #this part to be used on linux servers.
-            os.kill( int(process_obj.pid) , signal.SIGINT)
-            #process_obj.send_signal(signal.SIGINT)
 
-            #this part works on windows.
-            #process_obj.kill()
-            #outs, errs = dummy_trades_in_progress[dummy_trade_process]["proc_obj"].communicate()
+            if Current_OS = "LINUX":
+                os.kill( int(process_obj.pid) , signal.SIGINT)
+                #process_obj.send_signal(signal.SIGINT)
+            elif Current_OS = "WIN":
+                process_obj.kill()
+                outs, errs = dummy_trades_in_progress[dummy_trade_process]["proc_obj"].communicate()
 
             trade_id = dummy_trades_in_progress[ dummy_trade_process ]["trade_id"]
             original_dict = read_key( trade_id  )
@@ -498,12 +501,6 @@ def get_twitter_timeline( crypto_name ):
             rootLogger.exception( "<<< exception while fetching twitter time line : " + crypto_name + " " + str(e) + " >>>")
             try_count = try_count + 1
             sleep.sleep(30)
-            
-            try:
-                set_client_TWITTER()
-            except Exception as e:
-                rootLogger.exception("Issue with set twitter client " + str(e))
-
             continue
 
     if try_count >= MAX_RETRY:
@@ -638,7 +635,8 @@ def generate_alert( alert_symbol_pair, candle_tupel ):
             alert_data_dict["last_tweet_activities"] = None
 
         # fetch last 21 candles of same time frame to see volume breakout on same time frame
-        while try_count > MAX_RETRY:
+        try_count = 0
+        while try_count < MAX_RETRY:
             try:
                 candles = client_BINANCE.get_historical_klines( alert_symbol_pair, \
                                                         candle_tupel[ Kline_data.I ], \
@@ -710,7 +708,7 @@ def generate_alert( alert_symbol_pair, candle_tupel ):
 
         #=================================================================================================
 
-        if alert_data_dict["last_tweet_age_min"] is not None and alert_data_dict["last_tweet_age_min"] < 15:
+        if alert_data_dict["last_tweet_age_min"] is not None and alert_data_dict["last_tweet_age_min"] < 1500:
 
             data_lock.acquire()
 
