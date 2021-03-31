@@ -88,6 +88,14 @@ following steps need to be followed :
 
 =================================================
 
+### Deployment :
+
+- "Setting up your environment for development" section can be used to set up the development environment.
+- periodic ON of OFF can be triggred on linux using cronjob or by different method on windows.
+- periodic clean up of log files are also needed.
+
+=================================================
+
 ### Important Points :
 
 1) it's been noticed and identified that this code have issues while running on linux based system and using nested threding and network call. code runs fine on windows 10 system.
