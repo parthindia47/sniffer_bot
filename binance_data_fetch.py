@@ -62,6 +62,7 @@ import signal
 from telegram import Bot
 from telegram.error import TimedOut
 import logging
+from sys import platform
 
 # some usful enums to access tupel and list element
 class Kline_data(IntEnum):
@@ -213,10 +214,10 @@ def exit_script():
             process_obj = dummy_trades_in_progress[dummy_trade_process]["proc_obj"]
             #this part to be used on linux servers.
 
-            if Current_OS = "LINUX":
+            if Current_OS == "LINUX":
                 os.kill( int(process_obj.pid) , signal.SIGINT)
                 #process_obj.send_signal(signal.SIGINT)
-            elif Current_OS = "WIN":
+            elif Current_OS == "WIN":
                 process_obj.kill()
                 outs, errs = dummy_trades_in_progress[dummy_trade_process]["proc_obj"].communicate()
 
@@ -224,6 +225,7 @@ def exit_script():
             original_dict = read_key( trade_id  )
             original_dict["dummy_order_status"] = "suspended"
             write_key( trade_id, original_dict )
+
     except Exception as e:
         rootLogger.exception( "exception while killing process : " + str(e) )
 
@@ -504,7 +506,7 @@ def get_twitter_timeline( crypto_name ):
             continue
 
     if try_count >= MAX_RETRY:
-        rootLogger.info( "<<< failed even after 5 calls >>> " + crypto_name )
+        rootLogger.info( "<<< failed to fetch even after multiple calls >>> " + crypto_name )
         return None
 
     for tweet in tweets:
