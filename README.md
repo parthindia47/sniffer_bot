@@ -31,21 +31,25 @@ command list for mac users : https://support.apple.com/en-in/guide/mac-help/cpmh
 
 ### Understanding Project structure :
 
-there is mainly 3 file which runs the bot :
+there is mainly 3 file which is used while running bot, 2 files needed to be triggered by user ( sniffer_bot_main_telegram_process.py and binance_data_fetch.py ) and  1 file ( binance_dummy_trade.py ) is used internally :
 
-1) sniffer_bot_main_telegram_process.py
-- this file is responsible for user management in the bot.
-- it identify commands like /addme , /removeme, /myhealth, /start.
-- it also send socket message to binance_data_fetch.py , to make user registration in real time.
+1) **sniffer_bot_main_telegram_process.py**
+- This file is responsible for user management in the bot.
+- It identify telegram commands like /addme, /removeme, /myhealth, /start.
+- It also send socket messages to **binance_data_fetch.py** , to update it's user database in real time.
 
-2) binance_data_fetch.py
-- this is the main file which do all data processing.
-- it listen on socket from sniffer_bot_main_telegram_process.py,
-- it fetch data from binance and then check twitts.
+2) **binance_data_fetch.py**
+- This is the main file which do all data processing on candles and twitter data.
+- It also triggers binance_dummy_trade.py when signal is detected.
+- It also sends telegram messages about detected signal to all registered users.
+- It listen on socket from sniffer_bot_main_telegram_process.py and binance_dummy_trade.py.
+- It fetch data from binance and then check twitts.
 
-3) binance_dummy_trade.py
-- this file is triggered in different shell , to generat the dummy trade.
-- mainly binance_data_fetch.py triggers this file and generate dummy_trade.
+3) **binance_dummy_trade.py**
+- This file is triggered in different shell , to generat the dummy trade.
+- Mainly binance_data_fetch.py triggers this file and generate dummy_trade.
+
+note : read comment headers in individual file for more info.
 
 =================================================
 
@@ -57,7 +61,7 @@ all data is stored in .json format and currently there is no DBMS is used.
 - hold information about twitter id and twitter accounts of each coin.
 
 2) user_list_sniffer_bot.json
-- holds information about user of the bot.
+- holds information about user of the bot. Auto created on checked in.
 
 =================================================
 
