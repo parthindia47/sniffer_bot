@@ -99,8 +99,9 @@ following steps need to be followed :
 ### Important Points :
 
 1) it's been noticed and identified that this code have issues while running on linux based system and using nested threding and network call. code runs fine on windows 10 system.
-2) We encourage use of open source software , following tools can be used :
-   * Open Office
+2) Software needed :
+   * Open Office / MS office
    * notepad++ / atom editor
    * python3
    * git client
+   * google chrome or any other browser.
